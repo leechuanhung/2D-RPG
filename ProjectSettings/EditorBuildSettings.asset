@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StarScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SelectScene.unity
+    guid: 39041c442b269d24d9bbf7a07fc19d0e
   m_configObjects: {}
