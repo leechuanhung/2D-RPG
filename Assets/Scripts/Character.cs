@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip JumpClip;
+    
 
     public float Speed = 4f;
     public float JumpPower = 6f;
@@ -127,6 +128,14 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
 
+            if(gameObject.name == "Warrior")
+            {
+                AttackObj.SetActive(true);
+                Invoke("SetAttackObjInactive", 0.5f);
+            }
+
+            else
+            {
             if (spriteRenderer.flipX)
             {
                 GameObject obj = Instantiate(AttackObj, transform.position, Quaternion.Euler(0, 180f, 0));
@@ -138,6 +147,8 @@ public class Character : MonoBehaviour
                 GameObject obj = Instantiate(AttackObj, transform.position, Quaternion.Euler(0, 0, 0));
                 obj.GetComponent<Rigidbody2D>().AddForce(Vector2.right * AttackSpeed, ForceMode2D.Impulse);
                 Destroy(obj, 3f);
+            }
+
             }
         }
     }
