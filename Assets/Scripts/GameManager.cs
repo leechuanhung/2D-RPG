@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public float PlayerHP = 100f;
     public float PlayerExp = 1f;
+    public int Coin = 0;
 
     private void Awake()
     {

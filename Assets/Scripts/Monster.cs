@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -12,6 +10,7 @@ public class Monster : MonoBehaviour
     private float TurnTime = 0;
 
     public float MoveSpeed = 3f;
+    public GameObject[] ItemObj;
 
     private Animator MonsterAnimator;
 
@@ -29,7 +28,7 @@ public class Monster : MonoBehaviour
     {
         moveTime += Time.deltaTime;
 
-        if(moveTime <= TurnTime)
+        if (moveTime <= TurnTime)
         {
             this.transform.Translate(MoveSpeed * Time.deltaTime, 0, 0);
         }
@@ -44,18 +43,18 @@ public class Monster : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player(Clone)")
+        if (collision.gameObject.tag == "Player")
         {
             MonsterAnimator.SetTrigger("Attack");
             GameManager.Instance.PlayerHP -= MonsterDamage;
         }
 
-        if(collision.gameObject.tag == "Attack")
+        if (collision.gameObject.tag == "Attack")
         {
             MonsterAnimator.SetTrigger("Damage");
             MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamge;
 
-            if(MonsterHP <= 0)
+            if (MonsterHP <= 0)
             {
                 MonsterDie();
             }
@@ -67,8 +66,18 @@ public class Monster : MonoBehaviour
         MonsterAnimator.SetTrigger("Die");
         GameManager.Instance.PlayerExp += MonsterExp;
 
+
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1.5f);
+    }
+    private void OnDestroy()
+    {
+        int itemRandom = Random.Range(0, ItemObj.Length * 2);
+        if (itemRandom < ItemObj.Length)
+        {
+            Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        }
+
     }
 
 }
