@@ -8,10 +8,16 @@ public class Item : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if(gameObject.tag == "coin")
+            if(gameObject.tag == "Coin")
             {
                 GameManager.Instance.Coin += 10;
                 Debug.Log("Player Coin : " + GameManager.Instance.Coin);
+                Destroy(gameObject);
+            }
+            else if(gameObject.tag == "HP")
+            {
+                GameManager.Instance.PlayerHP += 10;
+                Debug.Log("Player coin : " +  GameManager.Instance.PlayerHP);
                 Destroy(gameObject);
             }
         }

@@ -10,12 +10,12 @@ public class PlayerUI : MonoBehaviour
 
     public Slider HpSlider;
     private GameObject player;
+    public GameObject spawnPos;
     
     void Start()
     {
         IdText.text = GameManager.Instance.UserID;
-        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + GameManager.Instance.CharacterName);
-        player = Instantiate(playerPrefab);
+        player = GameManager.Instance.SpawnPlayer(spawnPos.transform);
     }
 
 

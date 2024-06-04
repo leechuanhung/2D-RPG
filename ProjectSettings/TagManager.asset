@@ -8,6 +8,8 @@ TagManager:
   - Attack
   - Ladder
   - Coin
+  - Undefined
+  - HP
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class Monster : MonoBehaviour
 
     private float moveTime = 0;
     private float TurnTime = 0;
+    private bool isDie = false;
 
     public float MoveSpeed = 3f;
     public GameObject[] ItemObj;
@@ -26,6 +27,8 @@ public class Monster : MonoBehaviour
 
     private void MonsterMove()
     {
+        if (isDie) return;
+
         moveTime += Time.deltaTime;
 
         if (moveTime <= TurnTime)
@@ -43,6 +46,8 @@ public class Monster : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isDie) return;
+
         if (collision.gameObject.tag == "Player")
         {
             MonsterAnimator.SetTrigger("Attack");
@@ -63,6 +68,7 @@ public class Monster : MonoBehaviour
 
     private void MonsterDie()
     {
+        isDie = true;
         MonsterAnimator.SetTrigger("Die");
         GameManager.Instance.PlayerExp += MonsterExp;
 
@@ -70,6 +76,7 @@ public class Monster : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1.5f);
     }
+
     private void OnDestroy()
     {
         int itemRandom = Random.Range(0, ItemObj.Length * 2);

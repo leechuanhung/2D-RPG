@@ -52,7 +52,7 @@ MonoBehaviour:
   MonsterExp: 3
   MoveSpeed: 3
   ItemObj:
-  - {fileID: 7441417655885087163, guid: 715b4bf2ea736f0438a7a2ff6d7d3eed, type: 3}
+  - {fileID: 192098822528964083, guid: 40b1176af21175f46936259060b9de74, type: 3}
   - {fileID: 5699436182478434765, guid: 751ecea457c5935418fbf819b50792fb, type: 3}
 --- !u!212 &2380219439129272085
 SpriteRenderer:

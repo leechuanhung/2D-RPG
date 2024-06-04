@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float PlayerExp = 1f;
     public int Coin = 0;
 
+    private GameObject Player;
+
     private void Awake()
     {
         if(Instance == null)
@@ -32,9 +34,12 @@ public class GameManager : MonoBehaviour
         UserID = PlayerPrefs.GetString("ID");
     }
 
-   
-    void Update()
+   public GameObject SpawnPlayer(Transform spawnPos)
     {
-        
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + GameManager.Instance.CharacterName);
+        Player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
+
+        return Player;
     }
+
 }
