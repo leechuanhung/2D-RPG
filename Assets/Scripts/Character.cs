@@ -118,10 +118,11 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
 
-            if (gameObject.name == "Warrior")
+            if (gameObject.name == "Warrior(Clone)")
             {
-                AttackObj.SetActive(true);
-                Invoke("SetAttackObjInactive", 0.5f);
+                //AttackObj.SetActive(true);
+                AttackObj.GetComponent<Collider2D>().enabled = true;
+                Invoke("SetAttackObjInative", 0.5f);
             }
 
             else
@@ -141,6 +142,12 @@ public class Character : MonoBehaviour
 
             }
         }
+    }
+
+    private void SetAttackObjInative()
+    {
+        //AttackObj.SetActive(false);
+        AttackObj.GetComponent<Collider2D>().enabled = false;
     }
 
     private void ClimbingCheck()
