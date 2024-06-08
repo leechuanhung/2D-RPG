@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpClip: {fileID: 8300000, guid: 544dab614436090418e0f953cfb09603, type: 3}
-  Speed: 6
+  Speed: 7
   JumpPower: 7
   AttackObj: {fileID: 230549726146592623, guid: a7566e64f3f6e7444a593a3ade7defa8, type: 3}
   AttackSpeed: 3

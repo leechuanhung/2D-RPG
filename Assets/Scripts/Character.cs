@@ -190,19 +190,30 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
             isLadder = true;
         }
+        if (collision.gameObject.tag == "Coin")
+        {
+            PlayerUI.scoreValue += 1;
+        }
+    
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Ladder")
+        if (collision.gameObject.tag == "Ladder")
         {
             isLadder = false;
             isClimbing = false;
         }
     }
 
+
+
+
+
 }
+
+
