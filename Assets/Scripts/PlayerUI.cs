@@ -5,26 +5,66 @@ public class PlayerUI : MonoBehaviour
 {
     public Image CharacterImg;
     public Text IdText;
-    public Text CoinText;
+    //public Text CoinText;
+    public Text MCText;
+    public Text coinCountText;
 
     public Slider HpSlider;
     private GameObject player;
     public GameObject spawnPos;
     public static int scoreValue;
 
+
+    public Text timerText; // 타이머를 표시할 Text 컴포넌트
+    private float elapsedTime; // 경과 시간
+
     void Start()
     {
         IdText.text = GameManager.Instance.UserID;
         player = GameManager.Instance.SpawnPlayer(spawnPos.transform);
-        CoinText = GetComponent<Text>();
+        //CoinText = GetComponent<Text>();
+        if (timerText == null)
+        {
+            //Debug.LogError("Timer Text is not assigned!");
+            return;
+        }
+
+        elapsedTime = 0f;
+        UpdateCoinCountText();
     }
 
 
     void Update()
     {
         display();
-        CoinText.text = ": " + scoreValue;
+        //CoinText.text = ": " + scoreValue;
+        int count = GameManager.monsterCount;
+        MCText.text = ": " + count.ToString();
+        if (timerText == null)
+        {
+            Debug.LogError("Timer Text is not assigned!");
+            return;
+        }
+
+        elapsedTime += Time.deltaTime; // 경과 시간 업데이트
+
+        // 경과 시간을 분과 초로 변환
+        int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+
+        // 시간 포맷 설정
+        if (minutes > 0)
+        {
+            timerText.text = string.Format("{0:D1}분 {1:D2}초", minutes, seconds);
+        }
+        else
+        {
+            timerText.text = string.Format("{0:D1}초", seconds);
+        }
+
+        //Debug.Log("Time Updated: " + timerText.text); // 디버그 메시지 추가
     }
+
 
     private void display()
     {
@@ -40,6 +80,12 @@ public class PlayerUI : MonoBehaviour
             PlayerUI.scoreValue += 1;
         }
     }
+
+    public void UpdateCoinCountText()
+    {
+        coinCountText.text = ": " + GameManager.coinCount.ToString();
+    }
+
 }
 
 

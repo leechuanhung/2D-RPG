@@ -12,8 +12,12 @@ public class GameManager : MonoBehaviour
     public float PlayerHP = 100f;
     public float PlayerExp = 1f;
     public int Coin = 0;
+    public  static int coinCount = 0;
 
     private GameObject Player;
+
+
+    public static int monsterCount;
 
     private void Awake()
     {
@@ -40,6 +44,11 @@ public class GameManager : MonoBehaviour
         Player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
 
         return Player;
+    }
+
+    public static void AddCoin(int amount)
+    {
+        coinCount += amount;
     }
 
 }

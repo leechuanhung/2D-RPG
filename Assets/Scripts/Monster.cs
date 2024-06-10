@@ -18,6 +18,7 @@ public class Monster : MonoBehaviour
     void Start()
     {
         MonsterAnimator = this.GetComponent<Animator>();
+        GameManager.monsterCount++;
     }
 
     void Update()
@@ -75,6 +76,7 @@ public class Monster : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 1.5f);
+        GameManager.monsterCount--;
     }
 
     private void OnDestroy()
