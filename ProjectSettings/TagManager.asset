@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Undefined
   - HP
+  - Wall
   layers:
   - Default
   - TransparentFX

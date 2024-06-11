@@ -75,18 +75,18 @@ public class Monster : MonoBehaviour
 
 
         GetComponent<Collider2D>().enabled = false;
-        Destroy(gameObject, 1.5f);
+        Invoke("CreateItem", 1.5f);
         GameManager.monsterCount--;
     }
 
-    private void OnDestroy()
+    private void CreateItem()
     {
         int itemRandom = Random.Range(0, ItemObj.Length * 2);
         if (itemRandom < ItemObj.Length)
         {
             Instantiate(ItemObj[itemRandom], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
         }
-
+        Destroy(gameObject);
     }
 
 }

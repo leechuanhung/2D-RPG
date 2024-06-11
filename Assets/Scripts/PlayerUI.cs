@@ -12,7 +12,7 @@ public class PlayerUI : MonoBehaviour
     public Slider HpSlider;
     private GameObject player;
     public GameObject spawnPos;
-    public static int scoreValue;
+    public static int coinAmount;
 
 
     public Text timerText; // 타이머를 표시할 Text 컴포넌트
@@ -22,7 +22,7 @@ public class PlayerUI : MonoBehaviour
     {
         IdText.text = GameManager.Instance.UserID;
         player = GameManager.Instance.SpawnPlayer(spawnPos.transform);
-        //CoinText = GetComponent<Text>();
+        //coinCountText = GetComponent<Text>();
         if (timerText == null)
         {
             //Debug.LogError("Timer Text is not assigned!");
@@ -37,7 +37,7 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
         display();
-        //CoinText.text = ": " + scoreValue;
+        coinCountText.text = ": " + coinAmount.ToString();
         int count = GameManager.monsterCount;
         MCText.text = ": " + count.ToString();
         if (timerText == null)
@@ -77,7 +77,7 @@ public class PlayerUI : MonoBehaviour
         if (collision.gameObject.tag == "Coin")
         {
 
-            PlayerUI.scoreValue += 1;
+            //PlayerUI.coinAmount += 1;
         }
     }
 

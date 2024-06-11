@@ -76078,6 +76078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c46cd57bda1204e9edb38518bb0d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
+  shakeDuration: 0.1
+  shakeMagnitude: 0.3
 --- !u!1 &637425785
 GameObject:
   m_ObjectHideFlags: 0
@@ -76186,7 +76189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0df8ae5044e96845bd53aecfb606446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterName: Warrior
+  SelectedPlayer: 2
   UserID: aaa
   PlayerHP: 100
   PlayerExp: 1
@@ -78053,7 +78056,7 @@ GameObject:
   - component: {fileID: 1357836709}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
