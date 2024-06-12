@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UserID = PlayerPrefs.GetString("ID");
+        //string UserID = PlayerPrefs.GetString("ID");
     }
 
    public GameObject SpawnPlayer(Transform spawnPos)

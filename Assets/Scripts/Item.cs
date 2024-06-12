@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
             }
             else if(gameObject.tag == "Speed")
             {
-                GameManager.Instance.Player.GetComponent<Character>().Speed += 10;
+                GameManager.Instance.Player.GetComponent<Character>().Speed += 5;
                 Debug.Log("Player Speed: " + GameManager.Instance.Player.GetComponent<Character>().Speed);
                 Destroy(gameObject);
             }

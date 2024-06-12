@@ -5,7 +5,7 @@ public class PlayerUI : MonoBehaviour
 {
     public Image CharacterImg;
     public Text IdText;
-    //public Text CoinText;
+    
     public Text MCText;
     public Text coinCountText;
 
@@ -22,10 +22,9 @@ public class PlayerUI : MonoBehaviour
     {
         IdText.text = GameManager.Instance.UserID;
         player = GameManager.Instance.SpawnPlayer(spawnPos.transform);
-        //coinCountText = GetComponent<Text>();
+        
         if (timerText == null)
         {
-            //Debug.LogError("Timer Text is not assigned!");
             return;
         }
 
