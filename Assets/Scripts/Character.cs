@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
     private bool justAttack, justJump;
     private bool faceRight = true;
 
+    public CameraShake cameraShake;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -198,7 +200,8 @@ public class Character : MonoBehaviour
         {
             PlayerUI.coinAmount += 1;
         }
-    
+        
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public int Coin = 0;
     public  static int coinCount = 0;
 
-    private GameObject Player;
+    public GameObject Player;
 
 
     public static int monsterCount;

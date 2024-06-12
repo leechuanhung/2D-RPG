@@ -15,6 +15,8 @@ public class Monster : MonoBehaviour
 
     private Animator MonsterAnimator;
 
+    
+
     void Start()
     {
         MonsterAnimator = this.GetComponent<Animator>();
@@ -38,7 +40,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            TurnTime = Random.Range(1, 5);
+            TurnTime = Random.Range(1, 4);
             moveTime = 0;
 
             transform.Rotate(0, 180, 0);
@@ -53,18 +55,21 @@ public class Monster : MonoBehaviour
         {
             MonsterAnimator.SetTrigger("Attack");
             GameManager.Instance.PlayerHP -= MonsterDamage;
+            
         }
 
         if (collision.gameObject.tag == "Attack")
         {
             MonsterAnimator.SetTrigger("Damage");
-            MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamge;
+            MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamage;
 
             if (MonsterHP <= 0)
             {
                 MonsterDie();
             }
         }
+
+        
     }
 
     private void MonsterDie()
@@ -88,5 +93,7 @@ public class Monster : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    
 
 }

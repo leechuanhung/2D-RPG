@@ -11,6 +11,8 @@ TagManager:
   - Undefined
   - HP
   - Wall
+  - Speed
+  - Damage
   layers:
   - Default
   - TransparentFX
