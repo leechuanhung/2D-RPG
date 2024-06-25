@@ -1,7 +1,9 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour
 {
@@ -39,6 +41,11 @@ public class NPC : MonoBehaviour
             if(dIndex > 0) dIndex--;
         }
         DialogueTextObj[dIndex].SetActive(true);
+    }
+
+    public void TownBtn()
+    {
+        SceneManager.LoadScene("TownScene");
     }
 
 }
