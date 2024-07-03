@@ -49,16 +49,16 @@ public class StoreManager : MonoBehaviour
             if (BackPackManager.Instance.AddItem(selectedItem))
             {
                 GameManager.Instance.Coin -= selectedItem.itemPrice;
-                Debug.Log("성공");
+                PopupMsgManager.Instance.ShowPopupMessage("구매 성공");
             }
             else
             {
-                Debug.Log("BackPack에 빈 공간이 없습니다.");
+                PopupMsgManager.Instance.ShowPopupMessage("BackPack에 빈 공간이 없습니다.");
             }
         }
         else
         {
-            Debug.Log($"잔액이 부족합니다. 잔액 : {GameManager.Instance.Coin}");
+            PopupMsgManager.Instance.ShowPopupMessage($"잔액이 부족합니다. 잔액 : {GameManager.Instance.Coin}");
         }
 
     }
