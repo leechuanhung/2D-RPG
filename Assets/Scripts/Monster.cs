@@ -57,7 +57,7 @@ public class Monster : MonoBehaviour
         if (collision.gameObject.tag == "Attack")
         {
             MonsterAnimator.SetTrigger("Damage");
-            MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamge;
+            MonsterHP -= collision.gameObject.GetComponent<Attack>().AttackDamage;
 
             if (MonsterHP <= 0)
             {

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public float AttackDamge = 5f;
+    public float AttackDamage = 5f;
 }

@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Undefined
   - HP
+  - InitPos
   layers:
   - Default
   - TransparentFX
