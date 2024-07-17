@@ -5,7 +5,6 @@ public class Character : MonoBehaviour
 {
 
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidbody2d;
     private AudioSource audioSource;
 
@@ -30,7 +29,6 @@ public class Character : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -68,16 +66,6 @@ public class Character : MonoBehaviour
         else
         {
             animator.SetBool("Move", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-
-            spriteRenderer.flipX = true;
         }
     }
 
@@ -122,7 +110,7 @@ public class Character : MonoBehaviour
             animator.SetTrigger("Attack");
             audioSource.PlayOneShot(AttackClip);
 
-            if (gameObject.name == "Warrior")
+            if (gameObject.name == "Warrior(Clone)")
             {
                 AttackObj.SetActive(true);
                 Invoke("SetAttackObjInactive", 0.5f);
