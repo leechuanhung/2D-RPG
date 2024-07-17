@@ -2,19 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
+public class CharacterStat
+{
+    public float HP = 100f;
+    public float MP = 100f;
+    public float Exp = 1f;
+    public float Def = 1f;
+    public int Lv = 1;
+    public int Coin = 0;
+}
+
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string CharacterName;
+    //public string CharacterName;
+    public Define.Player SelectedPlayer;
     public string UserID;
-
-    public float PlayerHP = 100f;
-    public float PlayerMP = 100f;
-    public float PlayerExp = 1f;
-    public float PlayerDef = 1f;
-    public int Coin = 0;
-
+    public CharacterStat PlayerStat = new CharacterStat();
+    [HideInInspector]
     public GameObject Player;
 
     public Character Character
@@ -48,7 +57,7 @@ public class GameManager : MonoBehaviour
 
    public GameObject SpawnPlayer(Transform spawnPos)
     {
-        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + GameManager.Instance.CharacterName);
+        GameObject playerPrefab = Resources.Load<GameObject>("Characters/" + SelectedPlayer.ToString());
         Player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation);
 
         return Player;
