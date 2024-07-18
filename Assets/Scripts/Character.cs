@@ -157,6 +157,11 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void AttackAnimation()
+    {
+        animator.SetTrigger("Attack");
+    }
+
     private void Flip()
     {
         faceRight = !faceRight;

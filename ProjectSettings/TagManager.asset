@@ -11,6 +11,8 @@ TagManager:
   - Undefined
   - HP
   - InitPos
+  - TAZOFX
+  - Skill
   layers:
   - Default
   - TransparentFX
